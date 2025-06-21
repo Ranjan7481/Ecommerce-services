@@ -10,9 +10,12 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin:  "http://localhost:5173",
-  credentials :true,
-}));
+  origin: [
+    "http://localhost:5173",                                 // local dev
+    "https://ubiquitous-faun-96621b.netlify.app"             // Netlify prod
+  ],
+  credentials: true
+}));redentials :true,
 app.use(express.json());
 
 app.get("/", (req, res) => {
