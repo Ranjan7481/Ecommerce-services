@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
-const connectDB = require("./config/db");
+const connectDB = require("./src/config/db");
 
 dotenv.config();
 const app = express();
@@ -49,8 +49,8 @@ app.get("/", (req, res) => {
 // });
 
 
-const serviceRouter = require("./routes/services");
-const paymentRouter = require("./routes/paymentRouter");
+const serviceRouter = require("./src/routes/services");
+const paymentRouter = require("./src/routes/paymentRouter");
 app.use("/", serviceRouter);
 app.use("/", paymentRouter);
 
